@@ -75,7 +75,8 @@ class EmployeeController extends Controller
                 $data=$request->all();
                 if($emp_details=$this->employee_details($data,$user_id))
                 {
-                    return redirect()->back()->withsucces("Add Employee Successfully");
+                    echo "Done";
+                    //return redirect()->back()->withsucces("Add Employee Successfully");
                 }
 
               }

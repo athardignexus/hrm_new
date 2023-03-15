@@ -39,9 +39,12 @@ Route::name('admin.')->middleware('auth')->group(function() {
     Route::resource('MutualFund',MutualFundController::class);
     Route::resource('Employee',EmployeeController::class);
     Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+
+    /* salary routes  */
     Route::get('gensalary',[GenEmpSalaryController::class,'genform'])->name('genform');
     Route::POST('emp_list',[GenEmpSalaryController::class,'emp_list'])->name('emp_list');
     Route::POST('gensalary',[GenEmpSalaryController::class,'gensalary'])->name('gensalary');
+    Route::get('GenSalary',[GenEmpSalaryController::class,'GenSalary'])->name('GenSalary');
 
 });
 

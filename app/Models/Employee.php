@@ -32,6 +32,10 @@ class Employee extends Model
     {
         return $this->hasMany(EmpAllowanceDetails::class,'emp_id');
     }
+    public function emp_deduction()
+    {
+        return $this->hasMany(EmpDeductionDetails::class,'emp_id');
+    }
     public function getEmpidAttribute()
     {
         return str_pad($this->id,'5',"0",STR_PAD_LEFT);
