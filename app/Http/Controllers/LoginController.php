@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
     public $valid_msg;
+
     function LoginController(valid_msg $valid_msg)
     {
         $this->valid_msg = $valid_msg;
