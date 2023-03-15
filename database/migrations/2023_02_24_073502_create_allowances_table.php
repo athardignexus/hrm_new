@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('insurances', function (Blueprint $table) {
+        Schema::create('allowances', function (Blueprint $table) {
             $table->id();
+            $table->string('allowance_head')->nullable();
+            $table->string('SHORT NAME');
+            $table->enum('status', [0, 1])->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('insurances');
+        Schema::dropIfExists('allowances');
     }
 };

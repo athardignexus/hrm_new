@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style2.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/table_style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    @stack('styles')
 
 </head>
 
@@ -187,7 +188,8 @@
                     <!-- Left Menu Start -->
                     <ul class="metismenu list-unstyled" id="side-menu">
                         <li>
-                            <a href="javascript: void(0);" class="waves-effect">
+                            <a href="{{ auth()->user()->role == '0' ? route('admin.dashboard') : route('user.dashboard') }}"
+                                class="waves-effect">
                                 <i class="fa fas fa-tachometer-alt"></i>
                                 <span key="t-dashboards">Home</span>
                             </a>
@@ -214,7 +216,7 @@
                                 <span key="t-contacts">Employee</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="{{ auth()->user()->role == '0' ? route('admin.Employee.create') : route('user.Employee.create') }}"
+                                <li><a href="{{ auth()->user()->role == '0' ? route('admin.Employee.index') : route('user.Employee.index') }}"
                                         key="t-user-grid">Manage
                                         Employee</a></li>
                                 <li><a href="#" key="t-profile">Manage Agent</a></li>
@@ -233,6 +235,17 @@
                                 <li><a href="{{ auth()->user()->role == '0' ? route('admin.MutualFund.create') : route('user.MutualFund.create') }}"
                                         key="t-add-product">Mutual
                                         Fund</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="fa fas fa-cubes"></i>
+                                <span key="t-ecommerce">Application</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="#" key="t-add-product">Leave Application</a>
+                                </li>
                             </ul>
                         </li>
 
@@ -459,6 +472,7 @@
 
     <script src="https://realableindia.com/public/js/home.js?v=48"></script>
     <script src="https://realableindia.com/public/js/payment.js?v=48"></script>
+    @stack('scripts')
 
 </body>
 

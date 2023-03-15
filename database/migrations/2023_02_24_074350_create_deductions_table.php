@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('mutual_funds', function (Blueprint $table) {
+        Schema::create('deductions', function (Blueprint $table) {
             $table->id();
+            $table->string('deduction_head')->nullable();
+            $table->string('short_name')->nullable();
+            $table->enum('status', [0, 1])->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mutual_funds');
+        Schema::dropIfExists('deductions');
     }
 };

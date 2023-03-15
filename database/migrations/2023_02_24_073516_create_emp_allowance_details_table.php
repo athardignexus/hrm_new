@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('emp_id')->unsigned();
             $table->foreignId('user_id')->unsigned();
-            $table->foreignId('head_id')->unsigned();
-            $table->decimal('amount',10,2)->nullable();
+            $table->unsignedBigInteger('head_id');
+            $table->decimal('amount', 10, 2)->nullable();
             $table->timestamps();
             $table->foreign('emp_id')->on('employees')->references('id')->cascadeOnDelete();
             $table->foreign('user_id')->on('users')->references('id')->cascadeOnDelete();

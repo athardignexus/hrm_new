@@ -38,7 +38,7 @@ Route::group(['middleware' => ['auth', 'checkAdmin']], function () {
                 function () {
                     return view('admin.dashboard');
                 }
-            );
+            )->name('dashboard');
             // Route::get('gensalary', [GenEmpSalaryController::class, 'gen_form'])->name('gen_form');
             Route::resource('insurance', InsuranceController::class);
             Route::resource('MutualFund', MutualFundController::class);
@@ -60,7 +60,7 @@ Route::group(['middleware' => ['auth', 'checkUser']], function () {
                 function () {
                     return view('user.dashboard');
                 }
-            );
+            )->name('dashboard');
 
             Route::resource('Employee', EmployeeController::class);
             Route::resource('insurance', InsuranceController::class);
