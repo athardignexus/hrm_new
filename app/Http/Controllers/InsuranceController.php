@@ -74,12 +74,12 @@ class InsuranceController extends Controller
             // }
 
             $lastInsuranceId = 'ACK-' . $insurance->id;
-            $upInsurance = new Insurance();
+            $upInsurance = Insurance::where('id', $insurance->id)->first();
             $upInsurance->ack_no = $lastInsuranceId;
             $upInsurance->save();
 
             $insPolicy = new InsurancePolicy();
-            $insPolicy->ins_id = $insurance->id;
+            $insPolicy->insurance_id = $insurance->id;
             $insPolicy->company_name = $request->company_name;
             $insPolicy->policy_name = $request->policy_name;
             $insPolicy->fund_option = $request->fund_option;
@@ -99,7 +99,7 @@ class InsuranceController extends Controller
             $insPolicy->save();
 
             $insDocument = new InsuranceDocument();
-            $insDocument->ins_id = $insurance->id;
+            $insDocument->insurance_id = $insurance->id;
             $insDocument->age_proof = $request->age_proof;
             $insDocument->address_proof = $request->address_proof;
             $insDocument->income_proof = $request->income_proof;

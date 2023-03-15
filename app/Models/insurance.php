@@ -10,26 +10,6 @@ class Insurance extends Model
 {
     use HasFactory;
 
-    // const PRIMARYKEY = 'id';
-
-    // protected $primaryKey = self::PRIMARYKEY;
-
-    // public function setAckNoAttribute($value)
-    // {
-    //     $this->attributes['ack_no'] = 'Ack-' . $value->id;
-    // }
-
-    /**
-     * Interact with the user's first name.
-     */
-    // protected function id(): Attribute
-    // {
-    //     return Attribute::make(
-    //         get: fn (string $value) => $value,
-    //         set: fn (string $value) => 'Ack-' . $value,
-    //     );
-    // }
-
     public function insPolicy()
     {
         return $this->hasOne(InsurancePolicy::class);
