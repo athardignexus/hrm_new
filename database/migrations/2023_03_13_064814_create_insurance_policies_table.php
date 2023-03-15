@@ -29,8 +29,8 @@ return new class extends Migration
             $table->string('premium_mode');
             $table->date('cheque_date');
             $table->string('applicatio_no');
-            $table->string('premium_amount');
-            $table->string('cheque_amount');
+            $table->decimal("premium_amount", 10, 2);
+            $table->decimal("cheque_amount", 10, 2);
             $table->string('cheque_no');
             $table->date('drown_on');
 

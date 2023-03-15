@@ -33,6 +33,7 @@ return new class extends Migration
             $table->string('client_signature');
             $table->string('stuff_signature');
             $table->string('aadhar_date');
+            $table->tinyInteger('status')->default(1)->comment("1=>active && 0=>Inactive");
             $table->timestamps();
         });
     }
