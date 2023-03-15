@@ -27,9 +27,17 @@ class GenEmpSalaryController extends Controller
     }
     public function gensalary(Request $request)
     {
+
         $emp_id = $request->input('emp_id');
         $data = Employee::with('user', 'emp_allowance')->whereIn('id', $emp_id)->get();
         //$emp_allowance=EmpAllowanceDetails::where('')->get();
         return $data[0]->emp_allowance;
+
+        $emp_id = $request->input('emp_id');
+        $data = Employee::with('user', 'emp_allowance', 'emp_deduction')->whereIn('id', $emp_id)->get();
+        //$emp_allowance=EmpAllowanceDetails::where('')->get();
+        //return $data[2]->emp_deduction;
+
+        return view('admin.Salary.GenSalary', compact('data'));
     }
 }

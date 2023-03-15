@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Allowance extends Model
 {
     use HasFactory;
+    public function getAllowanceHeadAttribute($value)
+    {
+        return ucfirst(strtolower($value));
+    }
 }

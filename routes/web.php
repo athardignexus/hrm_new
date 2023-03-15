@@ -28,7 +28,7 @@ Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::POST('/login', [LoginController::class, 'login_action'])->name('loginaction');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::group(['middleware' => ['auth', 'checkAdmin']], function () {
+
 
     Route::group(
         ['prefix' => 'admin', 'as' => 'admin.'],
@@ -48,7 +48,6 @@ Route::group(['middleware' => ['auth', 'checkAdmin']], function () {
             Route::POST('gensalary', [GenEmpSalaryController::class, 'gensalary'])->name('gensalary');
         }
     );
-});
 
 Route::group(['middleware' => ['auth', 'checkUser']], function () {
     Route::group(
