@@ -1,29 +1,29 @@
 @extends('admin.index');
 @section('main_section')
-<div class="main-content">
+    <div class="main-content">
 
-    <div class="page-content">
-        <section class="content content-custom no-print">
-            <div class=" content-wrapper " style="min-height: 306px;">
-                <!-- empty div for vuejs -->
-                <!-- End of currency related field-->
-                <!-- Content Header (Page header) -->
-                <section class="content-header">
-                    <h1>Insurance <small>Manage your Insurance Form</small>
-                    </h1>
-                </section>
+        <div class="page-content">
+            <section class="content content-custom no-print">
+                <div class=" content-wrapper " style="min-height: 306px;">
+                    <!-- empty div for vuejs -->
+                    <!-- End of currency related field-->
+                    <!-- Content Header (Page header) -->
+                    <section class="content-header">
+                        <h1>Insurance <small>Manage your Insurance Form</small>
+                        </h1>
+                    </section>
 
-                <!-- Main content -->
-                <section class="content2">
-                    <div class="box  box-solid " id="accordion">
-                        {{-- <div class="box-header with-border" style="cursor: pointer;">
+                    <!-- Main content -->
+                    <section class="content2">
+                        <div class="box  box-solid " id="accordion">
+                            {{-- <div class="box-header with-border" style="cursor: pointer;">
                             <h3 class="box-title">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseFilter">
                                     <i class="fa fa-filter" aria-hidden="true"></i> Filters
                                 </a>
                             </h3>
                         </div> --}}
-                         {{-- <div id="collapseFilter" class="panel-collapse active collapse  in "
+                            {{-- <div id="collapseFilter" class="panel-collapse active collapse  in "
                             aria-expanded="true">
                             <div class="box-body">
                                 <div class="col-md-3">
@@ -137,209 +137,199 @@
                                 </div>
                             </div>
                         </div> --}}
-                    </div>
-                    <div class="box box-primary">
-                        <div class="box-header">
-
-                            <h3 class="box-title">Insurance List</h3>
-                            <div class="box-tools">
-                                <a type="button" class="btn btn-block btn-primary "
-                                    href="{{ route('admin.insurance.create') }}"
-                                    data-container=".contact_modal">
-                                    <i class="fa fa-plus"></i> Add</a>
-                            </div>
                         </div>
+                        <div class="box box-primary">
+                            <div class="box-header">
 
-                        <div class="box-body">
-                            <div id="contact_table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
-                                <div class="row margin-bottom-20 text-center">
-                                    <div class="col-sm-2">
-                                        <div class="dataTables_length" id="contact_table_length"><label>Show
-                                                <select name="contact_table_length"
-                                                    aria-controls="contact_table" class="form-control input-sm">
-                                                    <option value="25">25</option>
-                                                    <option value="50">50</option>
-                                                    <option value="100">100</option>
-                                                    <option value="200">200</option>
-                                                    <option value="500">500</option>
-                                                    <option value="1000">1,000</option>
-                                                    <option value="-1">All</option>
-                                                </select> entries</label></div>
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="dt-buttons btn-group"> <a
-                                                class="btn btn-default buttons-csv buttons-html5 btn-sm"
-                                                tabindex="0" aria-controls="contact_table" href="#"><span><i
-                                                        class="fa fa-file-csv" aria-hidden="true"></i> Export to
-                                                    CSV</span></a> <a
-                                                class="btn btn-default buttons-excel buttons-html5 btn-sm"
-                                                tabindex="0" aria-controls="contact_table" href="#"><span><i
-                                                        class="fa fa-file-excel" aria-hidden="true"></i> Export
-                                                    to Excel</span></a> <a
-                                                class="btn btn-default buttons-print btn-sm" tabindex="0"
-                                                aria-controls="contact_table" href="#"><span><i
-                                                        class="fa fa-print" aria-hidden="true"></i>
-                                                    Print</span></a> <a
-                                                class="btn btn-default buttons-collection buttons-colvis btn-sm"
-                                                tabindex="0" aria-controls="contact_table" href="#"><span><i
-                                                        class="fa fa-columns" aria-hidden="true"></i> Column
-                                                    visibility</span></a> <a
-                                                class="btn btn-default buttons-pdf buttons-html5 btn-sm"
-                                                tabindex="0" aria-controls="contact_table" href="#"><span><i
-                                                        class="fa fa-file-pdf" aria-hidden="true"></i> Export to
-                                                    PDF</span></a> </div>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <div id="contact_table_filter" class="dataTables_filter"><label><input
-                                                    type="search" class="form-control input-sm"
-                                                    placeholder="Search ..."
-                                                    aria-controls="contact_table"></label></div>
-                                    </div>
-                                    <!-- <div id="contact_table_processing"
-                                        class="dataTables_processing panel panel-default"
-                                        style="display: none;">Processing...</div> -->
-                                </div>
-
-                                <div class="container-fluid px-0">
-                                    <div class="scrollables">
-                                        <div>
-                                            <table cellpadding="0" cellspacing="0" style="width: 100%; max-width: 100%;">
-                                                <tr class="thh_padding">
-                                                    <th>Action</th>
-                                                    <th>Police Name</th>
-                                                    <th>Police No</th>
-                                                    <th>Branch Name</th>
-                                                    <th>Mobile No</th>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="btn-group">
-                                                            <button type="button"
-                                                                class="btn btn-info dropdown-toggle btn-xs"
-                                                                data-toggle="dropdown"
-                                                                aria-expanded="false">Actions<span
-                                                                    class="caret"></span><span
-                                                                    class="sr-only">Toggle Dropdown
-                                                                </span>
-                                                            </button>
-                                                            <ul class="dropdown-menu dropdown-menu-left"
-                                                                role="menu">
-                                                                <li><a href="https://realableindia.com/public/index.php/payments/pay-contact-due/1?type=sell"
-                                                                        class="pay_sale_due"><i
-                                                                            class="fas fa-money-bill-alt"
-                                                                            aria-hidden="true"></i>Pay</a></li>
-                                                                <li><a
-                                                                        href="https://realableindia.com/public/index.php/contacts/1"><i
-                                                                            class="fas fa-eye"
-                                                                            aria-hidden="true"></i>View</a></li>
-                                                                <li><a href="https://realableindia.com/public/index.php/contacts/1/edit"
-                                                                        class="edit_contact_button"><i
-                                                                            class="glyphicon glyphicon-edit"></i>Edit</a>
-                                                                </li>
-                                                                <li><a href="https://realableindia.com/public/index.php/contacts/update-status/1"
-                                                                        class="update_contact_status"><i
-                                                                            class="fas fa-power-off"></i>Deactivate</a>
-                                                                </li>
-                                                                <li class="divider"></li>
-                                                                <li>
-                                                                    <a
-                                                                        href="https://realableindia.com/public/index.php/contacts/1?view=ledger">
-                                                                        <i class="fas fa-scroll"
-                                                                            aria-hidden="true"></i>
-                                                                        Ledger
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a
-                                                                        href="https://realableindia.com/public/index.php/contacts/1?view=sales">
-                                                                        <i class="fas fa-arrow-circle-up"
-                                                                            aria-hidden="true"></i>
-                                                                        Sales
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a
-                                                                        href="https://realableindia.com/public/index.php/contacts/1?view=documents_and_notes">
-                                                                        <i class="fas fa-paperclip"
-                                                                            aria-hidden="true"></i>
-                                                                        Documents &amp; Note
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                            </table>
-
-                                        </div><!-- END inner div -->
-                                    </div><!-- END scrollable -->
-
-                                </div>
-
-                                <div class="dataTables_info" id="contact_table_info" role="status"
-                                    aria-live="polite">Showing 1 to 1 of 1 entries</div>
-                                <div class="dataTables_paginate paging_simple_numbers"
-                                    id="contact_table_paginate">
-                                    <ul class="pagination">
-                                        <li class="paginate_button previous disabled"
-                                            id="contact_table_previous"><a href="#"
-                                                aria-controls="contact_table" data-dt-idx="0"
-                                                tabindex="0">Previous</a></li>
-                                        <li class="paginate_button active"><a href="#"
-                                                aria-controls="contact_table" data-dt-idx="1" tabindex="0">1</a>
-                                        </li>
-                                        <li class="paginate_button next disabled" id="contact_table_next"><a
-                                                href="#" aria-controls="contact_table" data-dt-idx="2"
-                                                tabindex="0">Next</a></li>
-                                    </ul>
+                                <h3 class="box-title">Insurance List</h3>
+                                <div class="box-tools">
+                                    <a type="button" class="btn btn-block btn-primary "
+                                        href="{{ route('admin.insurance.create') }}" data-container=".contact_modal">
+                                        <i class="fa fa-plus"></i> Add</a>
                                 </div>
                             </div>
+
+                            <div class="box-body">
+                                <div id="contact_table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                                    <div class="row margin-bottom-20 text-center">
+                                        <div class="col-sm-2">
+                                            <div class="dataTables_length" id="contact_table_length"><label>Show
+                                                    <select name="contact_table_length" aria-controls="contact_table"
+                                                        class="form-control input-sm">
+                                                        <option value="25">25</option>
+                                                        <option value="50">50</option>
+                                                        <option value="100">100</option>
+                                                        <option value="200">200</option>
+                                                        <option value="500">500</option>
+                                                        <option value="1000">1,000</option>
+                                                        <option value="-1">All</option>
+                                                    </select> entries</label></div>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="dt-buttons btn-group"> <a
+                                                    class="btn btn-default buttons-csv buttons-html5 btn-sm" tabindex="0"
+                                                    aria-controls="contact_table" href="#"><span><i
+                                                            class="fa fa-file-csv" aria-hidden="true"></i> Export to
+                                                        CSV</span></a> <a
+                                                    class="btn btn-default buttons-excel buttons-html5 btn-sm"
+                                                    tabindex="0" aria-controls="contact_table" href="#"><span><i
+                                                            class="fa fa-file-excel" aria-hidden="true"></i> Export
+                                                        to Excel</span></a> <a class="btn btn-default buttons-print btn-sm"
+                                                    tabindex="0" aria-controls="contact_table" href="#"><span><i
+                                                            class="fa fa-print" aria-hidden="true"></i>
+                                                        Print</span></a> <a
+                                                    class="btn btn-default buttons-collection buttons-colvis btn-sm"
+                                                    tabindex="0" aria-controls="contact_table" href="#"><span><i
+                                                            class="fa fa-columns" aria-hidden="true"></i> Column
+                                                        visibility</span></a> <a
+                                                    class="btn btn-default buttons-pdf buttons-html5 btn-sm" tabindex="0"
+                                                    aria-controls="contact_table" href="#"><span><i
+                                                            class="fa fa-file-pdf" aria-hidden="true"></i> Export to
+                                                        PDF</span></a> </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div id="contact_table_filter" class="dataTables_filter"><label><input
+                                                        type="search" class="form-control input-sm"
+                                                        placeholder="Search ..." aria-controls="contact_table"></label>
+                                            </div>
+                                        </div>
+                                        <!-- <div id="contact_table_processing"
+                                                                                                    class="dataTables_processing panel panel-default"
+                                                                                                    style="display: none;">Processing...</div> -->
+                                    </div>
+
+                                    <div class="container-fluid px-0">
+                                        <div class="scrollables">
+                                            <div>
+                                                <table cellpadding="0" cellspacing="0"
+                                                    style="width: 100%; max-width: 100%;">
+                                                    <thead>
+                                                        <tr class="thh_padding">
+                                                            <th>Action</th>
+                                                            <th>Police Name</th>
+                                                            <th>Police No</th>
+                                                            <th>Branch Name</th>
+                                                            <th>Mobile No</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($data as $value)
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="btn-group">
+                                                                        <button type="button"
+                                                                            class="btn btn-info dropdown-toggle btn-xs"
+                                                                            data-bs-toggle="dropdown"
+                                                                            aria-expanded="false">Actions<span
+                                                                                class="caret"></span><span
+                                                                                class="sr-only">Toggle Dropdown
+                                                                            </span>
+                                                                        </button>
+
+                                                                        <ul class="dropdown-menu dropdown-menu-left"
+                                                                            role="menu">
+                                                                            <li><a href="https://realableindia.com/public/index.php/payments/pay-contact-due/1?type=sell"
+                                                                                    class="pay_sale_due"><i
+                                                                                        class="fas fa-money-bill-alt"
+                                                                                        aria-hidden="true"></i>Pay</a></li>
+                                                                            <li><a href="{{ auth()->user()->role == '0' ? route('admin.insurance.show', Crypt::encrypt($value->id)) : route('user.insurance.show', Crypt::encrypt($value->id)) }}"><i
+                                                                                        class="fas fa-eye"
+                                                                                        aria-hidden="true"></i>View</a></li>
+                                                                            <li><a href="{{ auth()->user()->role == '0' ? route('admin.insurance.edit', Crypt::encrypt($value->id)) : route('user.insurance.edit', Crypt::encrypt($value->id)) }}"
+                                                                                    class="edit_contact_button"><i
+                                                                                        class="glyphicon glyphicon-edit"></i>Edit</a>
+                                                                            </li>
+                                                                            <li><a href="https://realableindia.com/public/index.php/contacts/update-status/1"
+                                                                                    class="update_contact_status"><i
+                                                                                        class="fas fa-power-off"></i>Deactivate</a>
+                                                                            </li>
+                                                                            <li class="divider"></li>
+                                                                            <li>
+                                                                                <a
+                                                                                    href="https://realableindia.com/public/index.php/contacts/1?view=ledger">
+                                                                                    <i class="fas fa-scroll"
+                                                                                        aria-hidden="true"></i>
+                                                                                    Ledger
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a
+                                                                                    href="https://realableindia.com/public/index.php/contacts/1?view=sales">
+                                                                                    <i class="fas fa-arrow-circle-up"
+                                                                                        aria-hidden="true"></i>
+                                                                                    Sales
+                                                                                </a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a
+                                                                                    href="https://realableindia.com/public/index.php/contacts/1?view=documents_and_notes">
+                                                                                    <i class="fas fa-paperclip"
+                                                                                        aria-hidden="true"></i>
+                                                                                    Documents &amp; Note
+                                                                                </a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </td>
+
+                                                                <td>{{ $value->division_name }}</td>
+                                                                <td>{{ $value->ack_no }}</td>
+                                                                <td>{{ $value->branch_name }}</td>
+                                                                <td>{{ $value->mob_no }}</td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+
+                                                </table>
+
+                                            </div><!-- END inner div -->
+                                        </div><!-- END scrollable -->
+
+                                    </div>
+
+                                    <div class="dataTables_info" id="contact_table_info" role="status"
+                                        aria-live="polite">Showing 1 to 1 of 1 entries</div>
+                                    <div class="dataTables_paginate paging_simple_numbers" id="contact_table_paginate">
+                                        <ul class="pagination">
+                                            <li class="paginate_button previous disabled" id="contact_table_previous"><a
+                                                    href="#" aria-controls="contact_table" data-dt-idx="0"
+                                                    tabindex="0">Previous</a></li>
+                                            <li class="paginate_button active"><a href="#"
+                                                    aria-controls="contact_table" data-dt-idx="1" tabindex="0">1</a>
+                                            </li>
+                                            <li class="paginate_button next disabled" id="contact_table_next"><a
+                                                    href="#" aria-controls="contact_table" data-dt-idx="2"
+                                                    tabindex="0">Next</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.box-body -->
                         </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <div class="modal fade contact_modal" tabindex="-1" role="dialog"
-                        aria-labelledby="gridSystemModalLabel">
-                    </div>
-                    <div class="modal fade pay_contact_due_modal" tabindex="-1" role="dialog"
-                        aria-labelledby="gridSystemModalLabel">
+                        <div class="modal fade contact_modal" tabindex="-1" role="dialog"
+                            aria-labelledby="gridSystemModalLabel">
+                        </div>
+                        <div class="modal fade pay_contact_due_modal" tabindex="-1" role="dialog"
+                            aria-labelledby="gridSystemModalLabel">
+                        </div>
+
+                    </section>
+                    <!-- /.content -->
+
+                    <div class="scrolltop no-print" style="display: none;">
+                        <div class="scroll icon"><i class="fas fa-angle-up"></i></div>
                     </div>
 
-                </section>
-                <!-- /.content -->
 
-                <div class="scrolltop no-print" style="display: none;">
-                    <div class="scroll icon"><i class="fas fa-angle-up"></i></div>
+                    <!-- This will be printed -->
+                    <section class="invoice print_section" id="receipt_section">
+                    </section>
+
                 </div>
 
-
-                <!-- This will be printed -->
-                <section class="invoice print_section" id="receipt_section">
-                </section>
-
-            </div>
-
-        </section>
-        <!-- container-fluid -->
-    </div>
-    <!-- End Page-content -->
-
-
-
-
-    <!-- <footer class="footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <script>document.write(new Date().getFullYear())</script> © Skote.
-                </div>
-                <div class="col-sm-6">
-                    <div class="text-sm-end d-none d-sm-block">
-                        Design & Develop by Dignexus
-                    </div>
-                </div>
-            </div>
+            </section>
+            <!-- container-fluid -->
         </div>
-    </footer> -->
-</div>
+        <!-- End Page-content -->
+    </div>
 @endsection
